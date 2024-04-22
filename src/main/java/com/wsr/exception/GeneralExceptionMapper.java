@@ -1,5 +1,6 @@
 package com.wsr.exception;
 
+import com.stripe.exception.StripeException;
 import jakarta.ws.rs.BadRequestException;
 import jakarta.ws.rs.ForbiddenException;
 import jakarta.ws.rs.NotAuthorizedException;
@@ -16,7 +17,22 @@ public class GeneralExceptionMapper implements ExceptionMapper<Exception> {
     
     @Override
     public Response toResponse(Exception exception) {
-        if (exception instanceof NotFoundException) {
+        
+        if (exception instanceof StripeException) {
+            
+            StripeException se = (StripeException) exception;
+            
+            StringBuilder sb = new StringBuilder();
+            sb.append("Stripe Exception\n")
+                    .append("RequestId: ").append(se.getRequestId())
+                    .append("code: ").append(se.getStripeError().getCode())
+                    .append("message: ").append(se.getStripeError().getMessage());
+            LOG.debug(sb.toString(), exception);
+            return Response
+                    .status(se.getStatusCode())
+                    .entity(se.getUserMessage())
+                    .build();
+        } else if (exception instanceof NotFoundException) {
             return Response
                     .status(Response.Status.NOT_FOUND)
                     .entity("Resource not found.")
