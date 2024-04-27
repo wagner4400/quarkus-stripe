@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public class ProductDAO {
     
-    static Product[] products;
+    static final Product[] products;
     
     static {
         products = new Product[4];

@@ -4,10 +4,10 @@ package com.wsr.util;
 public enum TestCards {
     VISA_BR("pm_card_br", "4000000760000002", "tok_br");
     
-    String paymentMethod;
-    String cardNumber;
+    private final String paymentMethod;
+    private final String cardNumber;
     
-    String token;
+    private final String token;
     TestCards(String paymentMethod, String cardNumber, String token) {
         this.cardNumber = cardNumber;
         this.paymentMethod = paymentMethod;
