@@ -3,6 +3,6 @@ package com.wsr;
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 @QuarkusIntegrationTest
-class SubscriptionResourceIT extends SubscriptionResourceTest {
+class StripeResourceIT extends StripeResourceTest {
     // Execute the same tests but in packaged mode.
 }

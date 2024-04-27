@@ -8,7 +8,7 @@ import jakarta.ws.rs.ext.Provider;
 import java.util.UUID;
 
 @Provider
-public class IdempotencyFilter implements ContainerRequestFilter {
+public class StripeIdempotencyFilter implements ContainerRequestFilter {
     
     @Override
     public void filter(ContainerRequestContext requestContext) {
