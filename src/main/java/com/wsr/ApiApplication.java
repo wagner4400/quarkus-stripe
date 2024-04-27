@@ -12,10 +12,6 @@ This class is not required for Quarkus but because we're using the OpenAPI annot
 we need to define the application class.
  */
 @OpenAPIDefinition(
-        tags = {
-                @Tag(name="widget", description="Widget operations."),
-                @Tag(name="gasket", description="Operations related to gaskets")
-        },
         info = @Info(
                 title="Quarkus Stripe API",
                 version = "1.0.1",
