@@ -10,11 +10,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/tastefulpantry .
+# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/quarkus-stripe .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/tastefulpantry
+# docker run -i --rm -p 8080:8080 quarkus/quarkus-stripe
 #
 ###
 FROM quay.io/quarkus/quarkus-micro-image:2.0

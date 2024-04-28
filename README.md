@@ -1,42 +1,5 @@
-
-<p align="center">
-  <img src="logo.png" alt="Logo" width="80" height="80">
-  <h3 align="center">🍽️ TastefulPantry 🍽️</h3>
-  <p align="center">
-    Social Cookbook Platform with Quarkus
-    <br />
-    <a href="#overview"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/wagner4400/TastefulPantry/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/wagner4400/TastefulPantry/issues">Request Feature</a>
-  </p>
-</p>
-
-## 📚 Table of Contents
-* [Overview](#overview)
-* [Roadmap](#roadmap)
-* [Running the Application](#running-the-application)
-* [Packaging and Running the Application](#packaging-and-running-the-application)
-* [Creating a Native Executable](#creating-a-native-executable)
-* [Related Guides](#related-guides)
-* [Provided Code](#provided-code)
-* [License](#license)
-* [Contact](#contact)
-
 ## 🌐 Overview
 Develop a social platform where users can create, share, and discover recipes. Users can create their custom cookbooks, follow friends, and share their culinary creations. This project will showcase your skills in Java, Quarkus, REST APIs, database interaction, and potentially some social networking features.
-
-## 🚀 Roadmap
-- [ ] **User Authentication and Profiles:** Implement user authentication and registration. Users can create profiles with details like name, bio, profile picture, etc.
-- [ ] **Recipe Management:** Create, edit, and delete recipes. Each recipe includes: Title, Description, Ingredients, Instructions, Tags (e.g., vegetarian, vegan, Italian). Cooking time, Difficulty level, Serving size.
-- [ ] **Cookbook Creation:** Users can create custom cookbooks to organize their recipes. Add recipes to their cookbooks. Make cookbooks public or private.
-- [ ] **Social Features:** Follow other users. Like, comment on, and share recipes. Discover recipes from followed users and trending recipes.
-- [ ] **Search and Filter:** Search for recipes based on title, ingredients, tags, etc. Filter recipes by cuisine, dietary preferences, etc.
-- [ ] **Sharing:** Share recipes and cookbooks with friends or publicly. Generate shareable links for private sharing.
-- [ ] **Notification System:** Notify users of new followers, likes, comments, and recipe updates.
-- [ ] **Favorites and History:** Allow users to mark recipes as favorites. View history of recently viewed recipes.
 
 ## Running the Application in Dev Mode
 
@@ -78,7 +41,7 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ./mvnw package -Dnative -Dquarkus.native.container-build=true
 ```
 
-You can then execute your native executable with: `./target/tastefulpantry-1.0.0-SNAPSHOT-runner`
+You can then execute your native executable with: `./target/quarkus-stripe-1.0.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
 
