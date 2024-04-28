@@ -15,7 +15,6 @@ import com.stripe.model.SubscriptionCollection;
 import com.stripe.model.SubscriptionItem;
 import com.stripe.model.SubscriptionItemCollection;
 import com.stripe.model.checkout.Session;
-import com.stripe.net.RequestOptions;
 import com.stripe.param.InvoiceCreateParams;
 import com.stripe.param.InvoiceItemCreateParams;
 import com.stripe.param.PaymentIntentCreateParams;
@@ -28,8 +27,9 @@ import com.wsr.model.dto.RequestDTO;
 import com.wsr.repository.ProductDAO;
 import com.wsr.util.StripeUtil;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.resource.spi.ConfigProperty;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
+import org.jboss.logging.Logger;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,14 +41,15 @@ import java.util.Map;
 @ApplicationScoped
 public class StripeService {
     
-    @ConfigProperty
+    Logger LOG = Logger.getLogger(StripeService.class);
+    
+    @ConfigProperty(name="stripe.api.key")
     String STRIPE_API_KEY;
     
-    @ConfigProperty
+    @ConfigProperty(name="client.base.url")
     String CLIENT_BASE_URL;
     
-    public String getHostedCheckout(RequestOptions requestOptions,
-                                    RequestDTO requestDTO) throws StripeException {
+    public String getHostedCheckout(RequestDTO requestDTO) throws StripeException {
         Stripe.apiKey = STRIPE_API_KEY;
         
         // Start by finding existing customer record from Stripe or creating a new one if needed
@@ -90,8 +91,7 @@ public class StripeService {
         return session.getUrl();
     }
     
-    public String getIntegratedCheckout(RequestOptions requestOptions,
-                                        @RequestBody RequestDTO requestDTO) throws StripeException {
+    public String getIntegratedCheckout(@RequestBody RequestDTO requestDTO) throws StripeException {
         
         Stripe.apiKey = STRIPE_API_KEY;
         
@@ -105,7 +105,7 @@ public class StripeService {
             PaymentIntentCreateParams params =
                     PaymentIntentCreateParams.builder()
                             .setAmount(Long.parseLong(StripeUtil.calculateOrderAmount(requestDTO.getItems())))
-                            .setCurrency("usd")
+                            .setCurrency("brl")
                             .setCustomer(customer.getId())
                             .setAutomaticPaymentMethods(
                                     PaymentIntentCreateParams.AutomaticPaymentMethods
@@ -174,8 +174,7 @@ public class StripeService {
         return paymentIntent.getClientSecret();
     }
     
-    public String newSubscription(RequestOptions requestOptions,
-                                  @RequestBody RequestDTO requestDTO) throws StripeException {
+    public String newSubscription(@RequestBody RequestDTO requestDTO) throws StripeException {
         
         Stripe.apiKey = STRIPE_API_KEY;
         
@@ -217,8 +216,7 @@ public class StripeService {
         return session.getUrl();
     }
     
-    public String cancelSubscription(RequestOptions requestOptions,
-                                     RequestDTO requestDTO) throws StripeException {
+    public String cancelSubscription(RequestDTO requestDTO) throws StripeException {
         Stripe.apiKey = STRIPE_API_KEY;
         
         Subscription subscription =
@@ -232,7 +230,7 @@ public class StripeService {
         return deletedSubscription.getStatus();
     }
     
-    public List<Map<String, String>> viewSubscriptions(RequestOptions requestOptions, RequestDTO requestDTO) throws StripeException {
+    public List<Map<String, String>> viewSubscriptions(RequestDTO requestDTO) throws StripeException {
         
         Stripe.apiKey = STRIPE_API_KEY;
         
@@ -279,8 +277,7 @@ public class StripeService {
         
     }
     
-    public String newSubscriptionWithTrial(RequestOptions requestOptions,
-                                           RequestDTO requestDTO) throws StripeException {
+    public String newSubscriptionWithTrial(RequestDTO requestDTO) throws StripeException {
         
         Stripe.apiKey = STRIPE_API_KEY;
         
@@ -321,8 +318,7 @@ public class StripeService {
         return session.getUrl();
     }
     
-    public List<Map<String, String>> listInvoices(RequestOptions requestOptions,
-                                                  RequestDTO requestDTO) throws StripeException {
+    public List<Map<String, String>> listInvoices(RequestDTO requestDTO) throws StripeException {
         
         Stripe.apiKey = STRIPE_API_KEY;
         
