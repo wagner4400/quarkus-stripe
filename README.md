@@ -1,8 +1,3 @@
-[![Maven Central](https://img.shields.io/badge/maven--central-v25.4.0-blue)](https://mvnrepository.com/artifact/com.stripe/stripe-java)
-[![JavaDoc](http://img.shields.io/badge/javadoc-reference-blue.svg)](https://stripe.dev/stripe-java)
-[![Build Status](https://github.com/stripe/stripe-java/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/stripe/stripe-java/actions?query=branch%3Amaster)
-[![Coverage Status](https://coveralls.io/repos/github/stripe/stripe-java/badge.svg?branch=master)](https://coveralls.io/github/quarkus-stripe/stripe-java?branch=master)
-
 ## 🌐 Overview
 Develop an api integrated with stripe using quarkus.
 
