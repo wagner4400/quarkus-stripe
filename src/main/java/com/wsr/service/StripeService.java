@@ -19,6 +19,7 @@ import com.stripe.param.InvoiceCreateParams;
 import com.stripe.param.InvoiceItemCreateParams;
 import com.stripe.param.PaymentIntentCreateParams;
 import com.stripe.param.ProductCreateParams;
+import com.stripe.param.ProductListParams;
 import com.stripe.param.ProductSearchParams;
 import com.stripe.param.SubscriptionItemListParams;
 import com.stripe.param.SubscriptionListParams;
@@ -350,5 +351,12 @@ public class StripeService {
         }
         
         return response;
+    }
+    
+    public List<Product> listAllProducts() throws StripeException {
+        
+        Stripe.apiKey = STRIPE_API_KEY;
+        ProductListParams params = ProductListParams.builder().build();
+        return Product.list(params).getData();
     }
 }

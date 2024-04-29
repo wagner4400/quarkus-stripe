@@ -1,9 +1,11 @@
 package com.wsr.controller;
 
 import com.stripe.exception.StripeException;
+import com.stripe.model.Product;
 import com.wsr.model.dto.RequestDTO;
 import com.wsr.service.StripeService;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
@@ -56,6 +58,12 @@ public class StripeController {
     @Path(("/invoices/list"))
     public List<Map<String, String>> listInvoices(@RequestBody RequestDTO requestDTO) throws StripeException {
         return stripeService.listInvoices(requestDTO);
+    }
+    
+    @GET
+    @Path(("/products/list"))
+    public List<Product> listAllProducts() throws StripeException {
+        return stripeService.listAllProducts();
     }
     
 }
