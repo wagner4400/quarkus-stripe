@@ -17,7 +17,7 @@ public class ProductDAO {
         
         sampleProduct.setName("Puma Shoes");
         sampleProduct.setId("shoe");
-        samplePrice.setCurrency("usd");
+        samplePrice.setCurrency("brl");
         samplePrice.setUnitAmountDecimal(BigDecimal.valueOf(2000));
         sampleProduct.setDefaultPriceObject(samplePrice);
         products[0] = sampleProduct;
@@ -27,7 +27,7 @@ public class ProductDAO {
         
         sampleProduct.setName("Nike Sliders");
         sampleProduct.setId("slippers");
-        samplePrice.setCurrency("usd");
+        samplePrice.setCurrency("brl");
         samplePrice.setUnitAmountDecimal(BigDecimal.valueOf(1000));
         sampleProduct.setDefaultPriceObject(samplePrice);
         products[1] = sampleProduct;
@@ -37,7 +37,7 @@ public class ProductDAO {
         
         sampleProduct.setName("Apple Music+");
         sampleProduct.setId("music");
-        samplePrice.setCurrency("usd");
+        samplePrice.setCurrency("brl");
         samplePrice.setUnitAmountDecimal(BigDecimal.valueOf(499));
         sampleProduct.setDefaultPriceObject(samplePrice);
         products[2] = sampleProduct;

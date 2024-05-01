@@ -120,6 +120,7 @@ public class StripeService {
         } else {
             // If invoice is needed, create the invoice object, add line items to it, and finalize it to create the PaymentIntent automatically
             InvoiceCreateParams invoiceCreateParams = new InvoiceCreateParams.Builder()
+                    .setCurrency("brl")
                     .setCustomer(customer.getId())
                     .build();
             
