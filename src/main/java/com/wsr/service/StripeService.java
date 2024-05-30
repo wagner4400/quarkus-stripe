@@ -44,10 +44,10 @@ public class StripeService {
     
     Logger LOG = Logger.getLogger(StripeService.class);
     
-    @ConfigProperty(name="stripe.api.key")
+    @ConfigProperty(name = "stripe.api.key")
     String STRIPE_API_KEY;
     
-    @ConfigProperty(name="client.base.url")
+    @ConfigProperty(name = "client.base.url")
     String CLIENT_BASE_URL;
     
     public String getHostedCheckout(RequestDTO requestDTO) throws StripeException {
