@@ -42,13 +42,13 @@ import java.util.Map;
 @ApplicationScoped
 public class StripeService {
     
-    Logger LOG = Logger.getLogger(StripeService.class);
+    private static final Logger log = Logger.getLogger(StripeService.class);
     
     @ConfigProperty(name = "stripe.api.key")
-    String STRIPE_API_KEY;
+    public String STRIPE_API_KEY;
     
     @ConfigProperty(name = "client.base.url")
-    String CLIENT_BASE_URL;
+    public String CLIENT_BASE_URL;
     
     public String getHostedCheckout(RequestDTO requestDTO) throws StripeException {
         Stripe.apiKey = STRIPE_API_KEY;
