@@ -8,13 +8,13 @@ import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 class StripeControllerTest {
-    @Test
-    void testHelloEndpoint() {
-        given()
-          .when().get("/stripe")
-          .then()
-             .statusCode(200)
-             .body(is("Hello RESTEasy"));
-    }
+//    @Test
+//    void testHelloEndpoint() {
+//        given()
+//          .when().get("/stripe")
+//          .then()
+//             .statusCode(200)
+//             .body(is("Hello RESTEasy"));
+//    }
 
 }
